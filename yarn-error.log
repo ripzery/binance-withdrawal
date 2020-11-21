@@ -1,0 +1,87 @@
+Arguments: 
+  /Users/rpzr/.nvm/versions/node/v12.16.1/bin/node /usr/local/Cellar/yarn/1.22.10/libexec/bin/yarn.js test
+
+PATH: 
+  /Users/rpzr/.nvm/versions/node/v12.16.1/bin:/usr/local/opt/node@10/bin:/Users/rpzr/.asdf/shims:/usr/local/opt/asdf/bin:/Users/rpzr/apache-maven-3.6.3/bin:/Users/rpzr/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/Apple/usr/bin:/usr/local/opt/node@10/bin:/Users/rpzr/apache-maven-3.6.3/bin:/Users/rpzr/bin
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  12.16.1
+
+Platform: 
+  darwin x64
+
+Trace: 
+  SyntaxError: /Users/rpzr/workspace/personal/binance-shortcuts/package.json: Unexpected string in JSON at position 690
+      at JSON.parse (<anonymous>)
+      at /usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:310:30)
+      at /usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "binance-withdrawal",
+    "version": "1.0.5",
+    "description": "A Binance client for withdrawing fund to non-custodial wallet",
+    "main": "./build/index.js",
+    "types": "./build/index.d.ts",
+    "type": "commonjs",
+    "prepublish": "tsc",
+    "typings": "./build/index.d.ts",
+    "engines": {
+      "node": "12.16.1"
+    },
+    "scripts": {
+      "start:dev": "nodemon",
+      "start": "ts-node src/index.ts",
+      "lint": "eslint ./src --ext .ts",
+      "fix-lint": "eslint . --fix --ext .ts",
+      "test": "jest",
+      "build": "tsc -p tsconfig.build.json"
+    },
+    "author": "ripzery",
+    "license": "MIT",
+    "keywords": [
+      "Binance",
+      "Node"
+    ],
+    "jest": {
+      "testEnvironment": "node"
+    }
+    "dependencies": {
+      "@types/jest": "^26.0.15",
+      "alfy": "^0.10.0",
+      "axios": "^0.21.0",
+      "dotenv": "^8.2.0",
+      "isomorphic-fetch": "^3.0.0",
+      "qs": "^6.9.4",
+      "tslib": "^2.0.3"
+    },
+    "devDependencies": {
+      "@babel/plugin-transform-typescript": "^7.12.1",
+      "@babel/preset-env": "^7.12.7",
+      "@types/node": "^14.14.9",
+      "@typescript-eslint/eslint-plugin": "^4.8.1",
+      "@typescript-eslint/parser": "^4.8.1",
+      "babel-cli": "^6.26.0",
+      "babel-jest": "^26.6.3",
+      "eslint": "^7.14.0",
+      "eslint-config-airbnb-base": "^14.2.1",
+      "eslint-import-resolver-typescript": "^2.3.0",
+      "eslint-plugin-import": "^2.22.1",
+      "jest": "^26.6.3",
+      "nodemon": "^2.0.6",
+      "ts-jest": "^26.4.4",
+      "ts-node": "^9.0.0",
+      "typescript": "^4.1.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

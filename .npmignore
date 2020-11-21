@@ -1,0 +1,6 @@
+README.md
+jest.config.*
+test/
+src/
+node_modules
+tsconfig.json
