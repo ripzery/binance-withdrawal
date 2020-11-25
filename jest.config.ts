@@ -7,7 +7,6 @@ const config: Config.InitialOptions = {
     '^.+\\.js?$': 'babel-jest', // Adding this line solved the issue
     '^.+\\.ts?$': 'ts-jest',
   },
-  setupFiles: ['<rootDir>/.jest/setEnvVars.js'],
 }
 
 export default config
