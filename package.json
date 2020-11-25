@@ -1,6 +1,6 @@
 {
   "name": "binance-withdrawal",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A Binance client for withdrawing fund to non-custodial wallet",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
