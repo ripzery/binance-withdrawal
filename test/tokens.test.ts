@@ -1,7 +1,7 @@
 import MockAdapter from 'axios-mock-adapter'
 import Binance from '../src/client/binance'
 
-describe('Binance', () => {
+describe('Wallet Tokens', () => {
   it('should list only tokens that have more than withdrawMin', async () => {
     const response = [
       { coin: 'UNI', free: '1', networkList: [{ withdrawMin: '2', name: 'ERC20' }] },

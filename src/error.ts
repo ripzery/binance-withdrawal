@@ -3,7 +3,6 @@ import { AxiosError } from 'axios'
 export default class BinanceError extends Error {
   constructor(error: AxiosError) {
     if (error.response) {
-      // Binance error message exist
       if (error.response.status === 400) {
         super(error.response.data.msg)
       } else {
@@ -14,4 +13,6 @@ export default class BinanceError extends Error {
     }
     this.name = 'BinanceError'
   }
+
+  static reThrow = (err: AxiosError) => { throw new BinanceError(err) }
 }
