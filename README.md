@@ -1,6 +1,6 @@
 # Binance Withdrawal
 
-A simple library that let you manage funds in Binance easily.
+A library that let you withdraw funds from Binance through simple API.
 
 Features:
 - Retrieves tokens in your account.
@@ -36,9 +36,8 @@ const binance = new Binance('https://api.binance.com', 'YOUR_API_KEY', 'YOUR_API
 const tokens = await binance.getWithdrawableTokens()
 ```
 
-Example output:
 <details>
-  <summary>Tokens</summary>
+  <summary>Example output</summary>
 
 ```json
 [
@@ -56,17 +55,17 @@ Example output:
             {
                 "addressRegex": "^(bnb1)[0-9a-z]{38}$",
                 "coin": "BTC",
-                "depositDesc": "Wallet Maintenance, Deposit Suspended", // shown only when "depositEnable" is false.
+                "depositDesc": "Wallet Maintenance, Deposit Suspended",
                 "depositEnable": false,
                 "isDefault": false,
                 "memoRegex": "^[0-9A-Za-z\\-_]{1,120}$",
-                "minConfirm": 1,  // min number for balance confirmation
+                "minConfirm": 1,
                 "name": "BEP2",
                 "network": "BNB",
                 "resetAddressStatus": false,
                 "specialTips": "Both a MEMO and an Address are required to successfully deposit your BEP2-BTCB tokens to Binance.",
-                "unLockConfirm": 0,  // confirmation number for balance unlcok
-                "withdrawDesc": "Wallet Maintenance, Withdrawal Suspended", // shown only when "withdrawEnable" is false.
+                "unLockConfirm": 0,
+                "withdrawDesc": "Wallet Maintenance, Withdrawal Suspended",
                 "withdrawEnable": false,
                 "withdrawFee": "0.00000220",
                 "withdrawMin": "0.00000440"
