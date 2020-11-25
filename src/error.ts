@@ -4,7 +4,6 @@ export default class BinanceError extends Error {
   constructor(error: AxiosError) {
     if (error.response) {
       // Binance error message exist
-      console.log(error.response.status)
       if (error.response.status === 400) {
         super(error.response.data.msg)
       } else {

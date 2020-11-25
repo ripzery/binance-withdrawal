@@ -3,7 +3,6 @@ import getFinalQueryString from './utils'
 import initAxios from '../src/client/http'
 import Binance from '../src/client/binance'
 import Withdrawal from '../src/request/withdrawal'
-import * as env from '../src/env'
 
 jest.mock('../src/client/http')
 
