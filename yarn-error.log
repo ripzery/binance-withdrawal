@@ -14,7 +14,7 @@ Platform:
   darwin x64
 
 Trace: 
-  SyntaxError: /Users/rpzr/workspace/personal/binance-shortcuts/package.json: Unexpected string in JSON at position 690
+  SyntaxError: /Users/rpzr/workspace/personal/binance-shortcuts/package.json: Unexpected token . in JSON at position 279
       at JSON.parse (<anonymous>)
       at /usr/local/Cellar/yarn/1.22.10/libexec/lib/cli.js:1625:59
       at Generator.next (<anonymous>)
@@ -24,13 +24,13 @@ Trace:
 npm manifest: 
   {
     "name": "binance-withdrawal",
-    "version": "1.0.5",
+    "version": "1.0.7",
     "description": "A Binance client for withdrawing fund to non-custodial wallet",
     "main": "./build/index.js",
     "types": "./build/index.d.ts",
     "type": "commonjs",
     "prepublish": "tsc",
-    "typings": "./build/index.d.ts",
+    "typings": "./build/index.d.ts".,
     "engines": {
       "node": "12.16.1"
     },
@@ -48,9 +48,6 @@ npm manifest:
       "Binance",
       "Node"
     ],
-    "jest": {
-      "testEnvironment": "node"
-    }
     "dependencies": {
       "@types/jest": "^26.0.15",
       "alfy": "^0.10.0",
@@ -66,6 +63,7 @@ npm manifest:
       "@types/node": "^14.14.9",
       "@typescript-eslint/eslint-plugin": "^4.8.1",
       "@typescript-eslint/parser": "^4.8.1",
+      "axios-mock-adapter": "^1.19.0",
       "babel-cli": "^6.26.0",
       "babel-jest": "^26.6.3",
       "eslint": "^7.14.0",

@@ -2,7 +2,7 @@ import { AxiosInstance, AxiosResponse } from 'axios'
 import querystring, { ParsedUrlQueryInput } from 'querystring'
 import createSig from '../utils/signature'
 import Withdrawal from '../interfaces/withdrawal'
-import { TokenPriceResponse } from '../interfaces/response'
+import { TokenPriceResponse, WithdrawableTokenResponse } from '../interfaces/response'
 import initAxios from './http'
 import BinanceError from '../error'
 
@@ -36,7 +36,10 @@ export default class Binance {
       .catch(BinanceError.reThrow)
   }
 
-  async getWithdrawableTokens(): Promise<AxiosResponse> {
+  /**
+   * Get all withdrawable tokens
+   */
+  async getWithdrawableTokens(): Promise<WithdrawableTokenResponse> {
     return this.client.get(`sapi/v1/capital/config/getall?${this.createQueryString()}`)
       .then((resp) => resp.data)
       .then((tokens) => tokens.filter((token: any) => token.networkList.find(filteredNetwork)))
