@@ -7,7 +7,7 @@ import Withdrawal from '../src/interfaces/withdrawal'
 jest.mock('../src/client/http')
 
 describe('Withdraw', () => {
-  let mockAxios: {create: jest.Mock, post: jest.Mock}
+  let mockAxios: { create: jest.Mock; post: jest.Mock }
   let mockDate: Date
 
   beforeAll(() => {
@@ -25,9 +25,8 @@ describe('Withdraw', () => {
     mockAxios = {
       create: jest.fn().mockReturnThis(),
       post: jest.fn(() => Promise.resolve(response)),
-    };
-
-    (initAxios as jest.Mock).mockImplementationOnce(() => mockAxios)
+    }
+    ;(initAxios as jest.Mock).mockImplementationOnce(() => mockAxios)
   })
 
   it('should withdraw with correct querystring and header', async () => {
@@ -46,6 +45,9 @@ describe('Withdraw', () => {
       'Content-Type': 'application/x-www-form-urlencoded',
       'X-MBX-APIKEY': 'apiKey',
     })
-    expect(mockAxios.post).toHaveBeenCalledWith('/wapi/v3/withdraw.html', expectedQueryString)
+    expect(mockAxios.post).toHaveBeenCalledWith(
+      '/wapi/v3/withdraw.html',
+      expectedQueryString
+    )
   })
 })
