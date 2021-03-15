@@ -3,7 +3,7 @@ export type TokenPriceResponse = {
   price: string
 }
 
-type NetworkList = {
+export type Network = {
   coin: string,
   name: string,
   withdrawFee: string,
@@ -13,7 +13,7 @@ type NetworkList = {
   isDefault: string
 }
 
-export type WithdrawableTokenResponse = {
+export type Token = {
   coin: string,
   free: string,
   freeze: string,
@@ -21,5 +21,5 @@ export type WithdrawableTokenResponse = {
   name: string,
   withdrawing: string,
   trading: string,
-  networkList: [NetworkList]
+  networkList: [Network]
 }

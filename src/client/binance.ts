@@ -4,20 +4,24 @@ import createSig from "../utils/signature"
 import Withdrawal from "../interfaces/withdrawal"
 import {
   TokenPriceResponse,
-  WithdrawableTokenResponse,
+  Token,
+  Network,
 } from "../interfaces/response"
 import initAxios from "./http"
 import BinanceError from "../error"
 
-function filteredNetwork(network: any): boolean {
-  return ["ERC20", "BTC", "BEP20", "BEP2"].includes(network.name)
+function filteredNetwork(network: Network): boolean {
+  return ["ETH", "BSC"].includes(network.network)
 }
 
-function filteredMinimumWithdrawable(token: any): boolean {
+function filteredMinimumWithdrawable(token: Token): boolean {
   const network = token.networkList.find(filteredNetwork)
-  const free = Number(token.free)
-  const withdrawMin = Number(network.withdrawMin)
-  return free > withdrawMin && free > 0
+  if(network){
+    const free = Number(token.free)
+    const withdrawMin = Number(network.withdrawMin)
+    return free > withdrawMin && free > 0
+  }
+  return false
 }
 
 export default class Binance {
@@ -43,12 +47,12 @@ export default class Binance {
   /**
    * Get all withdrawable tokens
    */
-  async getWithdrawableTokens(): Promise<WithdrawableTokenResponse> {
+  async getWithdrawableTokens(): Promise<Token[]> {
     return this.client
       .get(`sapi/v1/capital/config/getall?${this.createQueryString()}`)
       .then((resp) => resp.data)
-      .then((tokens) =>
-        tokens.filter((token: any) => token.networkList.find(filteredNetwork))
+      .then((tokens: Token[]) =>
+        tokens.filter((token: Token) => token.networkList.find(filteredNetwork))
       )
       .then((tokens) => tokens.filter(filteredMinimumWithdrawable))
       .catch(BinanceError.reThrow)
