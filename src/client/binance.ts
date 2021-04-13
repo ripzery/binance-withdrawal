@@ -39,7 +39,7 @@ export default class Binance {
 
   async withdraw(request: Withdrawal): Promise<AxiosResponse> {
     return this.client
-      .post("/wapi/v3/withdraw.html", this.createQueryString(request))
+      .post("/sapi/v1/capital/withdraw/apply", this.createQueryString(request))
       .then((resp) => resp.data)
       .catch(BinanceError.reThrow)
   }

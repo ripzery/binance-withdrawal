@@ -46,7 +46,7 @@ describe('Withdraw', () => {
       'X-MBX-APIKEY': 'apiKey',
     })
     expect(mockAxios.post).toHaveBeenCalledWith(
-      '/wapi/v3/withdraw.html',
+      '/sapi/v1/capital/withdraw/apply',
       expectedQueryString
     )
   })
